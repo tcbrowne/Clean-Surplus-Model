@@ -1,6 +1,3 @@
-# To add a new cell, type '# %%'
-# To add a new markdown cell, type '# %% [markdown]'
-# %%
 import numpy as np
 import scipy.stats as si
 import sympy as sy
@@ -44,9 +41,10 @@ Kc = (vRf * (1 - Bta)) + (Bta*vMR) # cost of capital of Company - calculation
 #Bta = 0.66
 
 
-# %%
+
 Book_Values = []
 
+#mark lewis was here
 def fun(currentyear, finalyear, BVpy, pytrt, vROE):
     BVcy = BVpy*(1+((1-pytrt)*vROE))
     #Book_Values.append((BVcy, currentyear))
@@ -60,15 +58,14 @@ print("Recursive Book Values calculated for Year {} to Year {}".format(by+1,int(
 print(fun(by + 1, by + vROElen - 1, byBV, pytrt, vROE))
 
 
-# %%
+
 Book_Values.insert(0,byBV)
 vOX_Values = [i * (vROE - Kc) for i in Book_Values]
 
 print("Abnormal Earnings for Year {} to Year {}".format(by+1,int(by + vROElen)))
 print(vOX_Values)
 
-
-# %%
+#mark lewis was here
 def some(voxvalues, Kc):
     temp = []
     n = 1
@@ -84,7 +81,6 @@ print("Sum of Total Abnormal Earnings for Year {} to Year {}".format(by+1, int(b
 print(sum(some(vOX_Values, Kc)))
 
 
-# %%
 vPA = byBV + sum(some(vOX_Values, Kc))
 
 numshares = float(input("Number of Shares Outstanding: "))
@@ -108,3 +104,5 @@ def ValuationStatement(currentprice, intrinsicprice, ValueComparison):
     return statement
 
 print(ValuationStatement(curr_share_value, Share_Value, ValueComparison))
+
+
