@@ -18,7 +18,7 @@ byBV = float(input("Base year Book Value: "))
 vROE = float(input("ROE as of January 1st, {}, or as at December 31, {}: ".format(by,py)))
 vROElen = float(input("Number of years ROE is expected to persist (i.e., Horizon): ")) #after which ROE will equal cost of capital
 byDiv = float(input("Dividend in base year (per share): "))
-pytrt = byDiv / byNI #payout ratio defined as Dividend (base year) / NI (base year), assume will contineu for seven years
+pytrt = byDiv / byNI #payout ratio defined as Dividend (base year) / NI (base year), assume will continue for seven years
 
 #CAPM variables
 vRf = float(input("Risk-Free Rate: ")) #use Canadian bank prime rate of 0.0125 per annum
