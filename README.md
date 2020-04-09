@@ -32,5 +32,5 @@ CAP Variables
 - Market Risk Premium
 - Beta
 
-#Sources
+# Sources
 Scott, William R. Financial Accounting Theory. Toronto, Ont: Pearson Prentice Hall, 2009. Print.
