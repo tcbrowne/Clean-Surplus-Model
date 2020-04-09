@@ -31,3 +31,6 @@ CAP Variables
 - Risk Free Rate
 - Market Risk Premium
 - Beta
+
+#Sources
+Scott, William R. Financial Accounting Theory. Toronto, Ont: Pearson Prentice Hall, 2009. Print.
