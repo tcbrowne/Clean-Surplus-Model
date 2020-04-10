@@ -7,6 +7,7 @@ from sympy import init_printing
 from matplotlib import pyplot as plt
 import yfinance as yf
 import pandas as pd
+import csv
 init_printing()
 
 
@@ -112,3 +113,15 @@ for tickerIndex in ticker_list:
         print(valueDict)
     except:
         print("Index Error when attempting to retrieve {} from Yahoo Finance".format(tickerIndex))
+
+#output to dictionary csv 
+csv_columns = ['Ticker','Valuation Statement']
+out_csv_file = "output.csv"
+try:
+    with open(csv_file, 'w') as out_csv_file:
+        writer = csv.DictWriter(out_csv_file, fieldnames=csv_columns)
+        writer.writeheader()
+        for data in valueDict:
+            writer.writerow(data)
+except IOError:
+    print("I/O error")
