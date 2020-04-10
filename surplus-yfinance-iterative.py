@@ -11,11 +11,10 @@ import csv
 init_printing()
 
 
-#Pull S&P tickers to run this script recurring - THIS IS NEW, TO REMOVE
-data_tick = pd.read_csv (r'/Users/taylorbrowne/Desktop/Python/Clean-Surplus/ticker_info.csv')
-data = pd.read_csv (r'/Users/taylorbrowne/Desktop/Python/Clean-Surplus/ticker_info.csv')   
+#Pull S&P tickers to run this script recurring
+data_tick = pd.read_csv (r'/path') #Update based on where you dropped CSV
+data = pd.read_csv (r'/path') #Update based on where you dropped CSV
 ticker_list = data['Symbol'].tolist()
-#print(ticker_list)
 
 #Define dictionary for all share values
 valueDict = dict([("Ticker", "Valuation")])
@@ -108,20 +107,12 @@ for tickerIndex in ticker_list:
 
         #print(ValuationStatement(curr_share_value, Share_Value, ValueComparison))
 
-        #working here
         valueDict.update([(ticker, ValuationStatement(curr_share_value, Share_Value, ValueComparison))])
-        print(valueDict)
+        #print(valueDict)
     except:
         print("Index Error when attempting to retrieve {} from Yahoo Finance".format(tickerIndex))
 
 #output to dictionary csv 
-csv_columns = ['Ticker','Valuation Statement']
-out_csv_file = "output.csv"
-try:
-    with open(csv_file, 'w') as out_csv_file:
-        writer = csv.DictWriter(out_csv_file, fieldnames=csv_columns)
-        writer.writeheader()
-        for data in valueDict:
-            writer.writerow(data)
-except IOError:
-    print("I/O error")
+with open('over_under_valuation_FINAL.csv', 'w') as f:
+            for key in valueDict.keys():
+                f.write("%s,%s\n"%(key,valueDict[key]))
