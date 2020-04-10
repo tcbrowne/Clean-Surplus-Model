@@ -36,5 +36,9 @@ CAP Variables
 1) Non-interative - manually put in all variables
 2) Iterative - most variables are pulled via yfinance API, few assumptions are hardcoded (i.e., CAPM and ROE horizon), assumes most recent year and data that is available, will loop through all tickers in CSV file in referenced path and spit out over / under valuation
 
+# Results from S&P500 Companies (Over/Under Valued)
+![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+Observed an average unvervaluation of ~$50 over entire population of sampled companies (357 total after removing outliers / faulty data) as of run occuring on April 10, 2020. 
+
 # Sources
 Scott, William R. Financial Accounting Theory. Toronto, Ont: Pearson Prentice Hall, 2009. Print.
