@@ -39,7 +39,7 @@ CAP Variables
 # Results from S&P500 Companies (Over/Under Valued)
 ![Value Variance](https://user-images.githubusercontent.com/13516076/78972479-d9e03f00-7adb-11ea-99b2-40ea159dc067.png)
 
-Observed an average unvervaluation of ~$50 over entire population of sampled companies (357 total after removing outliers / faulty data) as of run occuring on April 10, 2020. 
+Observed an average unvervaluation of ~$50 over entire population of sampled companies (357 total after removing outliers / faulty data) as of run occuring on April 10, 2020. Hardcoded variables: risk-free rate 2.45% (based on BoC prime rate), market risk premium 5.6%, ROE horizon of 7 years and base year of 2019/20 (depending on most recent report of 10k).
 
 # Sources
 Scott, William R. Financial Accounting Theory. Toronto, Ont: Pearson Prentice Hall, 2009. Print.
