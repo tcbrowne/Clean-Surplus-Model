@@ -32,5 +32,9 @@ CAP Variables
 - Market Risk Premium
 - Beta
 
+# Versions
+1) Non-interative - manually put in all variables
+2) Iterative - most variables are pulled via yfinance API, few assumptions are hardcoded (i.e., CAPM and ROE horizon), assumes most recent year and data that is available, will loop through all tickers in CSV file in referenced path and spit out over / under valuation
+
 # Sources
 Scott, William R. Financial Accounting Theory. Toronto, Ont: Pearson Prentice Hall, 2009. Print.
