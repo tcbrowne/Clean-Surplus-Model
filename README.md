@@ -37,7 +37,8 @@ CAP Variables
 2) Iterative - most variables are pulled via yfinance API, few assumptions are hardcoded (i.e., CAPM and ROE horizon), assumes most recent year and data that is available, will loop through all tickers in CSV file in referenced path and spit out over / under valuation
 
 # Results from S&P500 Companies (Over/Under Valued)
-![alt text](https://raw.githubusercontent.com/username/projectname/branch/path/to/img.png)
+![alt text](https://raw.githubusercontent.com/tcbrowne/Clean-Surplus-Model/Value Variance.png)
+
 Observed an average unvervaluation of ~$50 over entire population of sampled companies (357 total after removing outliers / faulty data) as of run occuring on April 10, 2020. 
 
 # Sources
