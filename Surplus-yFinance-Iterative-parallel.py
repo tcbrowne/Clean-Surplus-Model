@@ -5,11 +5,14 @@ from sympy.stats import Normal, cdf
 from sympy import init_printing
 from matplotlib import pyplot as plt
 from joblib import Parallel, delayed
-import multiprocessing
 import yfinance as yf
 import pandas as pd
 import csv
 import pyodbc
+import threading
+from threading import Lock, Thread
+
+lock = Lock()
 init_printing()
 
 
@@ -94,19 +97,29 @@ def processInput(tickerIndex):
         Share_Value = vPA / numshares
 
         ValueComparison = abs((curr_share_value - Share_Value))
-
-        valueDict.update([(ticker, ValuationStatement(curr_share_value, Share_Value, ValueComparison))]) #update to diciontary
-
-        #Below writes to excel
-        with open('over_under_valuation_Test.csv', 'w') as f:
-            for key in valueDict.keys():
-                f.write("%s,%s\n"%(key,valueDict[key]))
-
         print(ValueComparison)
+
+        lock.acquire()
+        valueDict.update([(ticker, ValuationStatement(curr_share_value, Share_Value, ValueComparison))]) #update to diciontary
+        print("logged {}".format(tickerIndex))
+        lock.release()
+
+        
     except:
         return print("Index Error when attempting to retrieve {} from Yahoo Finance".format(tickerIndex))
 
-#Parallel processing
-num_cores = multiprocessing.cpu_count()
+#mulithreading
+threads = []
+for tickerIndex in ticker_list:
+    t = threading.Thread(target=processInput, args=(tickerIndex,))
+    threads.append(t)
+    t.start()
 
-results = Parallel(n_jobs=num_cores)(delayed(processInput)(tickerIndex) for tickerIndex in ticker_list)
+for thread in threads:
+	thread.join()
+
+
+#Below writes to excel
+        with open('over_under_valuation_Test.csv', 'w') as f:
+            for key in valueDict.keys():
+                f.write("%s,%s\n"%(key,valueDict[key]))
