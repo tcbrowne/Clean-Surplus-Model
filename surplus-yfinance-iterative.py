@@ -10,7 +10,6 @@ import pandas as pd
 import csv
 init_printing()
 
-
 #Pull S&P tickers to run this script recurring
 data_tick = pd.read_csv (r'/path') #Update based on where you dropped CSV
 data = pd.read_csv (r'/path') #Update based on where you dropped CSV
